@@ -46,9 +46,9 @@ function apiFacade() {
   };
 
 
-  const login = async (user, password) => {
+  const login = async (username, password) => {
     const options = makeOptions("POST", true, {
-      username: user,
+      username: username,
       password: password,
     });
 
@@ -61,14 +61,16 @@ function apiFacade() {
       })
   };
 
-  const createUser = async (user, password, age) => {
-    const options = makeOptions("POST", true, {
-      username: user,
-      password: pass,
+  const createUser = async (username, password, age) => {
+    const options = makeOptions("POST", {
+      username: username,
+      password: password,
       age: age,
-    })
+    });
 
-    return await fetch()
+    return await fetch(URL + "/users", options)
+      .then(handleHttpErrors)
+
   }
 
   const fetchData = async () => {
@@ -86,7 +88,6 @@ function apiFacade() {
       return await fetch(URL + "/info/admin", options)
         .then(handleHttpErrors)
     }
-
   };
 
   const makeOptions = (method, addToken, body) => {
@@ -116,6 +117,7 @@ function apiFacade() {
     logout,
     fetchData,
     getUsername,
+    createUser,
   };
 }
 const facade = apiFacade();

@@ -1,23 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker";
+import facade from '../../facades/apiFacade';
 
-const CreateAccountComponent = ({createAccountClicked, setCreateAccountClicked}) => {
+
+const CreateAccountComponent = ({createAccountClicked, setCreateAccountClicked, setErrorMsg}) => {
   const init = { username: "", password: "", passwordRepeated: "", age: "" };
   const [loginCredentials, setLoginCredentials] = useState(init);
 
   const navigate = useNavigate()
 
-  const performLogin = (evt) => {
+  const performCreateUser = (evt) => {
       evt.preventDefault();
-      login(loginCredentials.username, loginCredentials.password);
+      createUser(loginCredentials.username, loginCredentials.password, loginCredentials.age);
     };
   
     const createUser = async (user, pass, age) => {
-      await facade.login(user, pass)
+      await facade.createUser(user, pass, age)
           .then(res => {
-            setLoggedIn(true)
-            navigate("/profile")
+            // SET SOME KIND OF SUCCESS MESSAGE
+            navigate("/login")
           })
           .catch(err => {
             err.fullError.then(e => setErrorMsg(e.message))
@@ -44,10 +45,10 @@ const CreateAccountComponent = ({createAccountClicked, setCreateAccountClicked})
       <form onChange={onChange}>
         <input type="text" placeholder="Enter username" id="username" required />{' '}
         <input type="password" placeholder="Enter password" id="password" required />
-        <input type="password" placeholder="Enter password again" id="password" required />
+        <input type="password" placeholder="Enter password again" id="passwordRepeated" required />
         <label htmlFor="date-born">Please enter birthdate </label>
         <input type="date" id="date-born"/>
-        <button className="glow-on-hover" onClick={performLogin}>Create</button>
+        <button className="glow-on-hover" onClick={performCreateUser}>Create</button>
       </form>
 
       <button className="glow-on-hover" onClick={() => setCreateAccountClicked(createAccountClicked => !createAccountClicked)}>Already have an account?</button>
