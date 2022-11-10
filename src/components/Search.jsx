@@ -2,8 +2,11 @@ import { useRef } from "react"
 
 function Search(props) {
     const inputRef = useRef()
-    console.log(inputRef.current);
     
+    const handleMovieSearch = () => {
+      
+    }
+
   return (
     <div>
         <h3>Search for a movie</h3>

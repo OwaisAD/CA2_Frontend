@@ -7,10 +7,14 @@ const CreateAccountComponent = ({
   setCreateAccountClicked,
   setErrorMsg,
 }) => {
-  const init = { username: "", password: "", passwordRepeated: "", age: "" };
-  const [loginCredentials, setLoginCredentials] = useState(init);
-
   const navigate = useNavigate();
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
+  const [loginCredentials, setLoginCredentials] = useState({ username: "", password: "", passwordRepeated: "", age: "" });
+  //const [error, setError] = useState({ username: "", password: "", passwordRepeated: "", age: "" }) //should be used to handling the form errors....
+  const date = new Date()
+  const minimumDate = `${date.getFullYear()-120}-01-01` // set because maximum age is 120
+  const maximumDate = `${date.getFullYear()-13}-01-01` // set because minimum age is 13
 
   const performCreateUser = (evt) => {
     evt.preventDefault();
@@ -60,8 +64,7 @@ const CreateAccountComponent = ({
       });
     }
   };
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
+
 
   return (
     <div>
@@ -90,7 +93,7 @@ const CreateAccountComponent = ({
             required
           />
           <label htmlFor="date-born">Please enter birthdate </label>
-          <input type="date" id="date-born" />
+          <input type="date" id="date-born" min={minimumDate} max={maximumDate} required/>
           <button className="glow-on-hover" onClick={performCreateUser}>
             Create
           </button>
