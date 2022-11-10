@@ -9,7 +9,7 @@ const Login = ({ setLoggedIn, setErrorMsg, createAccountClicked, setCreateAccoun
     {!createAccountClicked ? 
         (<><LoginComponent createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg}/></>) 
         : 
-        (<><CreateAccountComponent setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg}/></>)}
+        (<><CreateAccountComponent createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg}/></>)}
     </>
   )
 }

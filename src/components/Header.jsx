@@ -7,7 +7,7 @@ import LoginButton from "./LoginButton"
 function Header({ loggedIn, setErrorMsg, setLoggedIn, setCreateAccountClicked }) {
   return (
     <nav className="topnav">
-      <NavLink className="active" to="/">
+      <NavLink to="/" exact={true} end>
         <i className="fa fa-fw fa-home"></i> Home
       </NavLink>
 

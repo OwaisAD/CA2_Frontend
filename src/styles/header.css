@@ -3,13 +3,19 @@
 }
 
 body {
+  height: 100%;
   margin: 0;
   font-family: 'Lato', 'Roboto', sans-serif;
+  background: rgb(2,0,36);
+  background: linear-gradient(318deg, rgba(2,0,36,1) 0%, rgba(9,15,125,1) 23%, rgba(9,9,121,1) 45%, rgba(0,212,255,1) 83%, rgba(227,229,237,1) 100%);
+  background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .topnav {
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.65);
+  background: rgb(0,0,0);
+  background: linear-gradient(98deg, rgba(0,0,0,0.8085828081232493) 0%, rgba(5,5,5,0.14471726190476186) 100%);
 }
 
 .topnav a {
@@ -32,16 +38,9 @@ body {
   color: white;
 }
 
+
 .topnav .login-container {
   float: right;
-}
-
-.topnav input[type="text"] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-  width: 120px;
 }
 
 .topnav input[type="password"] {
@@ -159,3 +158,37 @@ input[type=text],input[type=password], select {
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
+
+/*STYLING LOGIN COMPONENT*/
+.login-component-container {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  justify-content: center;
+  text-align: center;
+  max-width: 500px;
+  padding: 60px 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+/*STYLING CREATE USER COMPONENT*/
+.create-user-component-container {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  justify-content: center;
+  text-align: center;
+  max-width: 500px;
+  padding: 60px 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+

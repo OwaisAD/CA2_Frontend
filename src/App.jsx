@@ -16,7 +16,7 @@ const App = () => {
   return (
     <>
       <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn} setErrorMsg={setErrorMsg} setCreateAccountClicked={setCreateAccountClicked}/>
-
+      
       <Routes>
         <Route path="/" element={<Home />}/> 
         <Route path="search" element={<Search />} />

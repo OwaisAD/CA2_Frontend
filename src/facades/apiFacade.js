@@ -1,4 +1,5 @@
-const URL = "http://localhost:8080";
+import {BASE_API_URL as URL} from "../../settings"
+
 
 const handleHttpErrors = async (res) => {
   if (!res.ok) {
@@ -45,14 +46,13 @@ function apiFacade() {
   };
 
 
-
   const login = async (user, password) => {
     const options = makeOptions("POST", true, {
       username: user,
       password: password,
     });
 
-    return await fetch(URL + "/api/login", options)
+    return await fetch(URL + "/login", options)
       .then(handleHttpErrors)
       .then((res) => {
         setToken(res.token)
@@ -61,19 +61,29 @@ function apiFacade() {
       })
   };
 
+  const createUser = async (user, password, age) => {
+    const options = makeOptions("POST", true, {
+      username: user,
+      password: pass,
+      age: age,
+    })
+
+    return await fetch()
+  }
+
   const fetchData = async () => {
     const options = makeOptions("GET",true); //True add's the token to the headers doing a check if user is logged in and if the addToken parameter is true, which it is here
     const role = getRole()
 
     // try getting for user
     if(role === "user") {
-    return await fetch(URL + "/api/users/me", options)
+    return await fetch(URL + "/users/me", options)
       .then(handleHttpErrors)
     }
 
     // then try getting for admin
     if(role === "admin") {
-      return await fetch(URL + "/api/info/admin", options)
+      return await fetch(URL + "/info/admin", options)
         .then(handleHttpErrors)
     }
 
