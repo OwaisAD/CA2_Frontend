@@ -1,4 +1,4 @@
-import Login from "./Login";
+import Login from "./LoginButton";
 import LoggedIn from "./LoggedIn";
 import facade from "../facades/apiFacade";
 import { useState } from "react";

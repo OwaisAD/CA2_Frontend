@@ -4,7 +4,7 @@ import {Link, Outlet} from 'react-router-dom'
 function Home() {
   return (
     <div>
-      <h2>Homepage</h2>
+      <h2>Welcome </h2>
         <Link to="/persons">Show persons</Link>
         <Outlet/>
     </div>

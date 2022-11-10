@@ -6,7 +6,7 @@ function Search(props) {
     
   return (
     <div>
-        <h3>Search</h3>
+        <h3>Search for a movie</h3>
       <form>
             <input id='search' type="text" placeholder='Search' ref={inputRef} required/>
             <button type="submit" onClick={() => {

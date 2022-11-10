@@ -48,7 +48,7 @@ function apiFacade() {
 
   const login = async (user, password) => {
     const options = makeOptions("POST", true, {
-      name: user,
+      username: user,
       password: password,
     });
 

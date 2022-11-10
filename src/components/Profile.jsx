@@ -4,7 +4,7 @@ import Unauthorized from "./Unauthorized";
 
 const Profile = ({loggedIn, setLoggedIn}) => {
   const [dataFromServer, setDataFromServer] = useState("Loading...");
-
+  // NEED TO HAVE A STATE THAT CHECKS WETHER A USER ADDED A MOVIE TO WATCHLIST, IF YES, THEN USEEFFECT SHOULD RELY ON THAT VARIABLE
 
   useEffect(() => {
     // her skal jeg tjekke for rollen og køre den rigitge fetch metode alt efter rollen
