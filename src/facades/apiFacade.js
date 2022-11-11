@@ -10,6 +10,12 @@ const handleHttpErrors = async (res) => {
 
 function apiFacade() {
 
+  const searchMovie = async (movieTitle) => {
+    const options = makeOptions("GET"); //True add's the token to the headers doing a check if user is logged in and if the addToken parameter is true, which it is here
+    return await fetch(URL + "/movie/"+movieTitle, options)
+      .then(handleHttpErrors)
+  }
+
   const setToken = (token) => {
     localStorage.setItem("jwtToken", token);
   };
@@ -109,6 +115,7 @@ function apiFacade() {
 
 
   return {
+    searchMovie,
     makeOptions,
     setToken,
     getToken,
