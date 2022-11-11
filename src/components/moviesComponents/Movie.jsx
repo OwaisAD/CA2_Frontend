@@ -28,6 +28,7 @@ const Movie = ({ movieData }) => {
           </div>
         </div>
       </div>
+
       <ul className="movie-tags">
         {categoriesList.map((category, idx) => {
           return (
@@ -37,7 +38,7 @@ const Movie = ({ movieData }) => {
           );
         })}
       </ul>
-
+    
       <p className="movie-release">Released {movieData.movie.released}</p>
 
       <div className="summary-title">Summary</div>
@@ -57,6 +58,7 @@ const Movie = ({ movieData }) => {
           </div>
         </div>
       </div>
+      <i className="fa fa-fw fa-share" style={{fontSize: "20px", marginTop: "20px"}}></i>
     </div>
   );
 };
