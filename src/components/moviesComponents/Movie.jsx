@@ -29,9 +29,9 @@ const Movie = ({ movieData }) => {
         </div>
       </div>
       <ul className="movie-tags">
-        {categoriesList.map((category) => {
+        {categoriesList.map((category, idx) => {
           return (
-            <li>
+            <li key={idx}>
               <a href="#">{category}</a>
             </li>
           );
@@ -40,16 +40,22 @@ const Movie = ({ movieData }) => {
 
       <p className="movie-release">Released {movieData.movie.released}</p>
 
+      <div className="summary-title">Summary</div>
       <div className="movie-plot-container">
         <p className="movie-plot">{movieData.movie.plot}</p>
+        <p className="movie-actors">Actors: {movieData.movie.actors}</p>
       </div>
 
       <div className="movie-review-info">
-        <h2>Review</h2>
-        <p>{movieData.review.summary_short}</p>
-        <a href={movieData.review.url} target="_blank">
-          {movieData.review.suggested_link_text}
-        </a>
+        <h2 className="review-title">Review</h2>
+        <div className="movie-review-info-inner-container">
+          <p>{movieData.review.summary_short}</p>
+          <div className="tag">
+          <a href={movieData.review.url} target="_blank">
+            {movieData.review.suggested_link_text}
+          </a>
+          </div>
+        </div>
       </div>
     </div>
   );
