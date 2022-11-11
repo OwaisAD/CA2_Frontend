@@ -35,7 +35,7 @@ function Search(props) {
       </form>
     </div>
     
-    {isLoading ? <p>Loading movie...</p> : (movieData !== undefined && <Movie movieData={movieData}/>)}
+    {isLoading ? <h1>Loading movie...</h1> : (movieData !== undefined && <Movie movieData={movieData}/>)}
     </>
   )
 }

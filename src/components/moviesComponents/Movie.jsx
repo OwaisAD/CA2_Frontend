@@ -26,13 +26,17 @@ const Movie = ({ movieData }) => {
           <button className="movie-img-middle-text">Add {movieData.movie.title} to watchlist</button>
         </div>
 
-        <p>
-          {movieData.movie.year}, {movieData.movie.runtime}
-        </p>
+        <div className="ribbon">
+          <div className="ribbon-text">
+            {movieData.movie.year}, {movieData.movie.runtime}
+          </div>
+        </div>
       </div>
 
       <p>Category: {movieData.movie.genre}</p>
       <p>Released {movieData.movie.released}</p>
+
+      <p>{movieData.movie.plot}</p>
 
       <div className="movie-review-info">
         <h2>Review</h2>
