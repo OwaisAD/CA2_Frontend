@@ -1,1 +1,5 @@
-based on : https://docs.google.com/document/d/1J0pLlU-9iLoVn_yqt5RnJ_nsQExt_kcajMoJ47wsRN4/edit
+# Course Assignment 2, 3rd semester
+This project is meant to build a project template. It is made with React and built with Vite.
+
+# Setup project instructions
+- Clone or download the project
