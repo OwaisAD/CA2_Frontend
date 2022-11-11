@@ -49,6 +49,7 @@ function apiFacade() {
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("roles");
     localStorage.removeItem("username");
+    localStorage.removeItem("role")
   };
 
 

@@ -2,13 +2,11 @@ import React from "react";
 import "../../styles/header.css";
 
 const Movie = ({ movieData }) => {
-
-    const categories = movieData.movie.genre
-    let categoriesList = categories.split(",")
-    categoriesList = categoriesList.map(function(item) {
-      return item.trim();
-    });
-
+  const categories = movieData.movie.genre;
+  let categoriesList = categories.split(",");
+  categoriesList = categoriesList.map(function (item) {
+    return item.trim();
+  });
 
   return (
     <div className="movie-container">
@@ -32,13 +30,19 @@ const Movie = ({ movieData }) => {
       </div>
       <ul className="movie-tags">
         {categoriesList.map((category) => {
-          return <li><a href="#">{category}</a></li>
+          return (
+            <li>
+              <a href="#">{category}</a>
+            </li>
+          );
         })}
       </ul>
 
       <p className="movie-release">Released {movieData.movie.released}</p>
 
-      <p>{movieData.movie.plot}</p>
+      <div className="movie-plot-container">
+        <p className="movie-plot">{movieData.movie.plot}</p>
+      </div>
 
       <div className="movie-review-info">
         <h2>Review</h2>

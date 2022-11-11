@@ -364,3 +364,14 @@ form.search-field-form button:hover {
 .movie-tags li:hover{
   background-color: rgba(0, 0, 0, 0.255);
 }
+
+.movie-plot-container {
+  border-left: 2px solid black;
+  border-style: none none none double;
+}
+
+.movie-plot {
+  color: white;
+  font-size: 18px;
+  padding-left: 20px;
+}
