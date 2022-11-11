@@ -1,43 +1,60 @@
-import { useState } from "react"
-import { useRef } from "react"
-import facade from "../facades/apiFacade"
-import Movie from "./moviesComponents/Movie"
+import { useState } from "react";
+import { useRef } from "react";
+import facade from "../facades/apiFacade";
+import Movie from "./moviesComponents/Movie";
 
 function Search(props) {
-    const inputRef = useRef()
-    const [isLoading, setIsLoading] = useState(false)
-    const [movieData, setMovieData] = useState(undefined)
+  const inputRef = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+  const [movieData, setMovieData] = useState(undefined);
 
-    const handleMovieSearch = (event) => {
-      event.preventDefault()
-      setIsLoading(true)
-      facade.searchMovie(inputRef.current.value)
-        .then(res => {
-          console.log(res)
-          setMovieData(res)
-        })
-        .catch(err => {
-          //err.fullError.then(e => setErrorMsg(e.message))
-          //navigate("/error")
-        })
-      setIsLoading(false)
-    }
+  const handleMovieSearch = (event) => {
+    event.preventDefault();
+    if(inputRef.current.value === "") return
+    setIsLoading(true);
+    facade
+      .searchMovie(inputRef.current.value)
+      .then((res) => {
+        console.log(res);
+        setMovieData(res);
+        inputRef.current.value = ""
+      })
+      .catch((err) => {
+        //err.fullError.then(e => setErrorMsg(e.message))
+        //navigate("/error")
+      });
+    setIsLoading(false);
+  };
 
   return (
     <>
-    <div>
-      <h3>Search for a movie</h3>
-      <form>
-            <input id='search' type="text" placeholder='Search' ref={inputRef} required/>
-            <button type="submit" onClick={
-               handleMovieSearch
-            }>Search</button>
-      </form>
-    </div>
-    
-    {isLoading ? <h1>Loading movie...</h1> : (movieData !== undefined && <Movie movieData={movieData}/>)}
+      <div>
+        <h3>Search for a movie</h3>
+        <div className="search-bar">
+          <form className="search-field-form">
+            <div className="search-field">
+              <input
+                id="search"
+                type="text"
+                placeholder="Search..."
+                ref={inputRef}
+                required
+              />
+            </div>
+            <button type="submit" onClick={handleMovieSearch}>
+            <i className="fa fa-fw fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {isLoading ? (
+        <h1>Loading movie...</h1>
+      ) : (
+        movieData !== undefined && <Movie movieData={movieData} />
+      )}
     </>
-  )
+  );
 }
 
-export default Search
+export default Search;

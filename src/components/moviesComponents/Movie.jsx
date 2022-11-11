@@ -13,7 +13,7 @@ const Movie = ({ movieData }) => {
   return (
     <div className="movie-container">
       <div className="title-container">
-        <h2>{movieData.movie.title}</h2>
+          {movieData.movie.title}
       </div>
 
       <div className="movie-info-with-poster">
@@ -23,7 +23,7 @@ const Movie = ({ movieData }) => {
           className="movie-poster-img"
         />
         <div className="movie-img-middle">
-          <button className="movie-img-middle-text">Add {movieData.movie.title} to watchlist</button>
+          <button className="movie-img-middle-text">Add to watchlist</button>
         </div>
 
         <div className="ribbon">
