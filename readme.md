@@ -24,7 +24,7 @@ npm run dev
 ```
 
 ## Deployment
-Great. If you want to deploy run the deploy.sh file and enter your website url as will be instructed. You might have to do some configuring if you are using nginx
+Great. If you want to deploy, run the deploy.sh file and enter your website url as instructed. You might have to do some configuring if you are using nginx
 ```
 sh deploy.sh
 ```
