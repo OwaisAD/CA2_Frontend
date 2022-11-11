@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { useRef } from "react";
 import facade from "../facades/apiFacade";
 import Movie from "./moviesComponents/Movie";
 
-function Search(props) {
+function Search({movieData, setMovieData}) {
   const inputRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
-  const [movieData, setMovieData] = useState(undefined);
+
+
+
+  useEffect(() => {
+    window.sessionStorage.setItem("movie", movieData)
+  }, [movieData])
 
   const handleMovieSearch = (event) => {
     event.preventDefault();
@@ -15,8 +21,7 @@ function Search(props) {
     facade
       .searchMovie(inputRef.current.value)
       .then((res) => {
-        console.log(res);
-        setMovieData(res);
+        setMovieData(res)
         inputRef.current.value = ""
       })
       .catch((err) => {
