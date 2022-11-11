@@ -2,19 +2,17 @@ import React from "react";
 import "../../styles/header.css";
 
 const Movie = ({ movieData }) => {
-  function unicodeToChar(text) {
-    return text.replace(/\\u[\dA-F]{4}/gi, 
-           function (match) {
-                return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
-           });
- }
+
+    const categories = movieData.movie.genre
+    let categoriesList = categories.split(",")
+    categoriesList = categoriesList.map(function(item) {
+      return item.trim();
+    });
 
 
   return (
     <div className="movie-container">
-      <div className="title-container">
-          {movieData.movie.title}
-      </div>
+      <div className="title-container">{movieData.movie.title}</div>
 
       <div className="movie-info-with-poster">
         <img
@@ -32,15 +30,19 @@ const Movie = ({ movieData }) => {
           </div>
         </div>
       </div>
+      <ul className="movie-tags">
+        {categoriesList.map((category) => {
+          return <li><a href="#">{category}</a></li>
+        })}
+      </ul>
 
-      <p>Category: {movieData.movie.genre}</p>
-      <p>Released {movieData.movie.released}</p>
+      <p className="movie-release">Released {movieData.movie.released}</p>
 
       <p>{movieData.movie.plot}</p>
 
       <div className="movie-review-info">
         <h2>Review</h2>
-        <p>{unicodeToChar(movieData.review.summary_short)}</p>
+        <p>{movieData.review.summary_short}</p>
         <a href={movieData.review.url} target="_blank">
           {movieData.review.suggested_link_text}
         </a>

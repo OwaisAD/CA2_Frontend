@@ -8,8 +8,6 @@ function Search({movieData, setMovieData}) {
   const inputRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
 
-
-
   useEffect(() => {
     window.sessionStorage.setItem("movie", movieData)
   }, [movieData])
