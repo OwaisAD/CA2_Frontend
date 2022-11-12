@@ -13,7 +13,9 @@ const App = () => {
 
     const [loggedIn, setLoggedIn] = useState(false)
     const [errorMsg, setErrorMsg] = useState("")
-    const [createAccountClicked, setCreateAccountClicked] = useState(false);
+    const [createAccountClicked, setCreateAccountClicked] = useState(false)
+    const [addedMovieToWatchlist, setAddedMovieToWatchlist] = useState(false)
+    const [dataFromServer, setDataFromServer] = useState([]);
 
     const initialState = () => {
       window.sessionStorage.getItem("movie") 
@@ -28,8 +30,8 @@ const App = () => {
         <Route path="/" element={<Home />}/> 
         <Route path="search" element={<Search movieData={movieData} setMovieData={setMovieData} />} />
         <Route element={<ProtectedRoutes/>}>
-          <Route path="profile" element={<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-          <Route path='watchlist' element={<Watchlist loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
+          <Route path="profile" element={<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} setAddedMovieToWatchlist={setAddedMovieToWatchlist}/>} />
+          <Route path='watchlist' element={<Watchlist loggedIn={loggedIn} setLoggedIn={setLoggedIn} addedMovieToWatchlist={addedMovieToWatchlist} setAddedMovieToWatchlist={setAddedMovieToWatchlist} dataFromServer={dataFromServer} setDataFromServer={setDataFromServer}/>}/>
         </Route>
         <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked}/>} />
         <Route path='error' element={<Error errorMsg={errorMsg}/>}/>

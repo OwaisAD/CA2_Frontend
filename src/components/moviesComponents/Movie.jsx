@@ -1,12 +1,37 @@
 import React from "react";
+import facade from "../../facades/apiFacade";
 import "../../styles/header.css";
+import { useNavigate } from "react-router-dom";
 
-const Movie = ({ movieData }) => {
+const Movie = ({ movieData, addedMovieToWatchlist, setAddedMovieToWatchlist}) => {
+
+  const navigate = useNavigate()
+
   const categories = movieData.movie.genre;
   let categoriesList = categories.split(",");
   categoriesList = categoriesList.map(function (item) {
     return item.trim();
   });
+
+
+  const handleAddToUserWatchlist = () => {
+    const isLoggedIn = facade.loggedIn()
+    if(!isLoggedIn) {
+      return navigate("/login")
+    } 
+
+    if(window.confirm(`Are you sure you want to add ${movieData.movie.title} to your watchlist?`)) {
+      facade.addMovieToUser(movieData.movie.title, movieData.movie.year)
+        .then(res => {
+          setAddedMovieToWatchlist(!addedMovieToWatchlist)
+          navigate("/watchlist")
+        })
+        .catch(err => {
+          
+        })
+
+    }
+  }
 
   return (
     <div className="movie-container">
@@ -19,7 +44,7 @@ const Movie = ({ movieData }) => {
           className="movie-poster-img"
         />
         <div className="movie-img-middle">
-          <button className="movie-img-middle-text">Add to watchlist</button>
+          <button className="movie-img-middle-text" onClick={handleAddToUserWatchlist}>Add to watchlist</button>
         </div>
 
         <div className="ribbon">

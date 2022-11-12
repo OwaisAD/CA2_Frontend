@@ -18,7 +18,7 @@ const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCrea
         await facade.login(user, pass)
             .then(res => {
               setLoggedIn(true)
-              navigate("/profile")
+              navigate("/search")
             })
             .catch(err => {
               err.fullError.then(e => setErrorMsg(e.message))

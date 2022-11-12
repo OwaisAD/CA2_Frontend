@@ -97,6 +97,24 @@ function apiFacade() {
     }
   };
 
+  // add movie to user
+  const addMovieToUser = async (movietitle, year) => {
+    const options = makeOptions("POST", true, {
+      title: movietitle,
+      year: year,
+    })
+    return await fetch(`${URL}/users/me/movies`, options)
+      .then(handleHttpErrors)
+  }
+
+  const getUserMovies = async () => {
+      const options = makeOptions("GET", true)
+
+      return await fetch(`${URL}/users/me/movies`, options)
+        .then(handleHttpErrors)
+  }
+
+
   const makeOptions = (method, addToken, body) => {
     var opts = {
       method: method,
@@ -126,6 +144,8 @@ function apiFacade() {
     fetchData,
     getUsername,
     createUser,
+    addMovieToUser,
+    getUserMovies,
   };
 }
 const facade = apiFacade();
