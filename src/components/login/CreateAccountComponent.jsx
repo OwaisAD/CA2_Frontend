@@ -85,25 +85,28 @@ const CreateAccountComponent = ({
           <p>Please fill out the following fields</p>
         </div>
         <form onChange={onChange}>
+        <label htmlFor="username" style={{float: "left", fontSize: "16px", fontWeight:"lighter", marginLeft:"1px"}}>Username</label>
           <input
             type="text"
             placeholder="Enter username"
             id="username"
             required
           />{" "}
+          <label htmlFor="password" style={{float: "left", fontSize: "16px", fontWeight:"lighter", marginLeft:"1px"}}>Password</label>
           <input
             type="password"
             placeholder="Enter password"
             id="password"
             required
           />
+          <label htmlFor="password" style={{float: "left", fontSize: "16px", fontWeight:"lighter", marginLeft:"2px"}}>Confirm password</label>
           <input
             type="password"
             placeholder="Enter password again"
             id="passwordRepeated"
             required
           />
-          <div style={{marginTop: "10px"}}>
+          <div style={{marginTop: "20px"}}>
             <label htmlFor="age" style={{float:"left"}}>Please enter your birthdate </label>
             <input type="date" id="age" min={minimumDate} max={maximumDate} required style={{float:"righ"}}/>
           </div>

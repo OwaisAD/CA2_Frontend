@@ -627,5 +627,8 @@ form.search-field-form button:hover {
 
 .title h2 {
   font-size: 28px;
-  
+}
+
+.title p {
+font-size: 16px;
 }

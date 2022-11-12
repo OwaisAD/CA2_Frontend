@@ -40,7 +40,9 @@ const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCrea
         <p>Please login to continue</p>
       </div>
       <form onChange={onChange}>
+        <label htmlFor="username" style={{float: "left", fontSize: "16px", fontWeight:"lighter", marginLeft:"1px"}}>Username</label>
         <input type="text" placeholder="Enter username" id="username" required />{' '}
+        <label htmlFor="password" style={{float: "left", fontSize: "16px", fontWeight:"lighter", marginLeft:"1px"}}>Password</label>
         <input type="password" placeholder="Enter password" id="password" required />
         
         <button className="glow-on-hover sign-in-button" onClick={performLogin}>Sign in</button>
