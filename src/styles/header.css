@@ -166,7 +166,7 @@ input[type=text],input[type=password], select {
   justify-content: center;
   text-align: center;
   max-width: 500px;
-  padding: 60px 80px;
+  padding: 35px 70px;
   margin: auto;
 }
 
@@ -177,7 +177,7 @@ input[type=text],input[type=password], select {
   justify-content: center;
   text-align: center;
   max-width: 500px;
-  padding: 60px 80px;
+  padding: 35px 70px;
   margin: auto;
 }
 
@@ -623,4 +623,9 @@ form.search-field-form button:hover {
   font-size: 14px;
   height: 40px;
   margin-left: -1px;
+}
+
+.title h2 {
+  font-size: 28px;
+  
 }

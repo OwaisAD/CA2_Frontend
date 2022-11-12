@@ -103,11 +103,13 @@ const CreateAccountComponent = ({
             id="passwordRepeated"
             required
           />
-          <label htmlFor="age">Please enter birthdate </label>
-          <input type="date" id="age" min={minimumDate} max={maximumDate} required/> <br />
-          <button className="glow-on-hover create-button" onClick={performCreateUser}>
-            Create your CineWatch account
-          </button>
+          <div style={{marginTop: "10px"}}>
+            <label htmlFor="age" style={{float:"left"}}>Please enter your birthdate </label>
+            <input type="date" id="age" min={minimumDate} max={maximumDate} required style={{float:"righ"}}/>
+          </div>
+            <button className="glow-on-hover create-button" onClick={performCreateUser}>
+              Create your CineWatch account
+            </button>
         </form>
 
 

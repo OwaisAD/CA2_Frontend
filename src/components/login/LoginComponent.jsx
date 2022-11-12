@@ -45,8 +45,11 @@ const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCrea
         
         <button className="glow-on-hover sign-in-button" onClick={performLogin}>Sign in</button>
       </form>
-      <p style={{padding:"5px 0px"}}>or</p>
-      <button className="glow-on-hover" onClick={() => setCreateAccountClicked(createAccountClicked => !createAccountClicked)}>Create Account</button>
+
+      
+      <p style={{padding:"5px 0px"}}>Don't have an account?</p>
+      <a href="#" onClick={() => setCreateAccountClicked(createAccountClicked => !createAccountClicked)}>Sign up here</a>
+        
       <h3 style={{color:"red"}}>{errorMsgLogin}</h3>
     </div>
   )
