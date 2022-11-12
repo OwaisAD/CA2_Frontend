@@ -25,21 +25,24 @@ const CreateAccountComponent = ({
   const performCreateUser = (evt) => {
     evt.preventDefault();
     if(loginCredentials.username === "" || loginCredentials.password === "" || loginCredentials.passwordRepeated === "" || loginCredentials.age === "") {
+      setErrorMsg("Please fill out the form")
       return
     }
 
-    if(!(loginCredentials.password === loginCredentials.passwordRepeated)) {
+    if(loginCredentials.password !== loginCredentials.passwordRepeated) {
       setErrorMsg("Passwords don't match")
+      return
     }
     createUser(loginCredentials.username, loginCredentials.password, loginCredentials.age)
   };
 
-  const createUser = async (user, pass, age) => {
-    await facade
-      .createUser(user, pass, age)
+  const createUser = (user, pass, age) => {
+    facade.createUser(user, pass, age)
       .then(res => {
         // SET SOME KIND OF SUCCESS MESSAGE
-        navigate("/login");
+        setCreateAccountClicked(
+          (createAccountClicked) => !createAccountClicked
+        )
       })
       .catch((err) => {
         err.fullError.then((e) => setErrorMsg(e.message));
@@ -114,8 +117,8 @@ const CreateAccountComponent = ({
               (createAccountClicked) => !createAccountClicked
             )
           }>Log in here</a>
-        <p>{JSON.stringify(loginCredentials)}</p>
-        <p>error: {errorMsg}</p>
+        
+        <h3 style={{color:"red"}}>{errorMsg}</h3>
       </div>
     </div>
   );

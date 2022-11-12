@@ -6,6 +6,7 @@ import facade from '../../facades/apiFacade';
 const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCreateAccountClicked}) => {
     const init = { username: "", password: "" };
     const [loginCredentials, setLoginCredentials] = useState(init);
+    const [errorMsgLogin, setErrorMsgLogin] = useState("")
 
     const navigate = useNavigate()
 
@@ -21,8 +22,7 @@ const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCrea
               navigate("/search")
             })
             .catch(err => {
-              err.fullError.then(e => setErrorMsg(e.message))
-              navigate("/error")
+              err.fullError.then(e => setErrorMsgLogin(e.message))
             })
     }
     
@@ -43,10 +43,11 @@ const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCrea
         <input type="text" placeholder="Enter username" id="username" required />{' '}
         <input type="password" placeholder="Enter password" id="password" required />
         
-        <button className="glow-on-hover" onClick={performLogin}>Sign in</button>
+        <button className="glow-on-hover sign-in-button" onClick={performLogin}>Sign in</button>
       </form>
       <p style={{padding:"5px 0px"}}>or</p>
       <button className="glow-on-hover" onClick={() => setCreateAccountClicked(createAccountClicked => !createAccountClicked)}>Create Account</button>
+      <h3 style={{color:"red"}}>{errorMsgLogin}</h3>
     </div>
   )
 }
