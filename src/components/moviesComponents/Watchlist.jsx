@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import facade from "../../facades/apiFacade";
 import Unauthorized from "../Unauthorized";
+import MovieInWatchlist from "./MovieInWatchlist";
 
 const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieToWatchlist, dataFromServer, setDataFromServer}) => {
 
@@ -28,6 +29,15 @@ const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieT
         ) : (
           <>
             <h1>Your Watchlist</h1>
+
+            <div id="container-movies">
+            {/*map across all movies*/}
+            {dataFromServer?.map(data => {
+              return <MovieInWatchlist movieData={data}/>
+            })}
+            </div>
+
+
           </>
         )}
       </>
