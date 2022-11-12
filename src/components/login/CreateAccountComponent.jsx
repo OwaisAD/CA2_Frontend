@@ -24,6 +24,10 @@ const CreateAccountComponent = ({
 
   const performCreateUser = (evt) => {
     evt.preventDefault();
+    if(loginCredentials.username === "" || loginCredentials.password === "" || loginCredentials.passwordRepeated === "" || loginCredentials.age === "") {
+      return
+    }
+
     if(!(loginCredentials.password === loginCredentials.passwordRepeated)) {
       setErrorMsg("Passwords don't match")
     }
