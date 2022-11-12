@@ -616,3 +616,11 @@ form.search-field-form button:hover {
   background-color: #f43f5e;
   color: white;
 }
+
+
+.create-button {
+  margin-top: 25px;
+  width: 100%;
+  font-size: 14px;
+  height: 40px;
+}

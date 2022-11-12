@@ -43,7 +43,7 @@ const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCrea
         <input type="text" placeholder="Enter username" id="username" required />{' '}
         <input type="password" placeholder="Enter password" id="password" required />
         
-        <button className="glow-on-hover" onClick={performLogin}>Login</button>
+        <button className="glow-on-hover" onClick={performLogin}>Sign in</button>
       </form>
       <p style={{padding:"5px 0px"}}>or</p>
       <button className="glow-on-hover" onClick={() => setCreateAccountClicked(createAccountClicked => !createAccountClicked)}>Create Account</button>

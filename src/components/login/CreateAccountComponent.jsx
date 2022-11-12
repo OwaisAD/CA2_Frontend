@@ -24,6 +24,9 @@ const CreateAccountComponent = ({
 
   const performCreateUser = (evt) => {
     evt.preventDefault();
+    if(!(loginCredentials.password === loginCredentials.passwordRepeated)) {
+      setErrorMsg("Passwords don't match")
+    }
     createUser(loginCredentials.username, loginCredentials.password, loginCredentials.age)
   };
 
@@ -95,21 +98,18 @@ const CreateAccountComponent = ({
           />
           <label htmlFor="age">Please enter birthdate </label>
           <input type="date" id="age" min={minimumDate} max={maximumDate} required/> <br />
-          <button className="glow-on-hover" onClick={performCreateUser}>
-            Create
+          <button className="glow-on-hover create-button" onClick={performCreateUser}>
+            Create your CineWatch account
           </button>
         </form>
 
-        <button
-          className="glow-on-hover"
-          onClick={() =>
+
+    <p>Already have an account?</p>
+    <a href="" onClick={() =>
             setCreateAccountClicked(
               (createAccountClicked) => !createAccountClicked
             )
-          }
-        >
-          Already have an account?
-        </button>
+          }>Log in here</a>
         <p>{JSON.stringify(loginCredentials)}</p>
         <p>error: {errorMsg}</p>
       </div>
