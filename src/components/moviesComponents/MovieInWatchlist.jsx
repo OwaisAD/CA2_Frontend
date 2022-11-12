@@ -1,7 +1,10 @@
 import React from "react";
 import facade from "../../facades/apiFacade";
+import { useNavigate } from "react-router-dom";
 
 const MovieInWatchlist = ({ movieData, removedMovie, setRemovedMovie }) => {
+  const navigate = useNavigate()
+
   const categories = movieData.movie.genre;
   let categoriesList = categories.split(",");
   categoriesList = categoriesList.map(function (item) {
@@ -9,6 +12,11 @@ const MovieInWatchlist = ({ movieData, removedMovie, setRemovedMovie }) => {
   });
 
   const handleMovieRemoval = (movieId) => {
+    const isLoggedIn = facade.loggedIn()
+    if(!isLoggedIn) {
+      navigate("/")
+    }
+
     facade.removeMovieFromUser(movieId)
       .then(res => {
         setRemovedMovie(!removedMovie)
@@ -46,7 +54,8 @@ const MovieInWatchlist = ({ movieData, removedMovie, setRemovedMovie }) => {
               <p className="movie-synopsis">
                {movieData.movie.plot}
               </p>
-              <button onClick={() => handleMovieRemoval(movieData.movie.id)}>Remove from watchlist</button>
+              <button className="remove-from-watchlist-button" onClick={() => handleMovieRemoval(movieData.movie.id)}>Remove from watchlist</button>
+
             </div>
         </div>
       </div>

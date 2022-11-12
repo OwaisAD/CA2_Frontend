@@ -594,10 +594,25 @@ form.search-field-form button:hover {
 	text-transform: lowercase;
 }
 
-
 .movie-synopsis{
 	width: 90%;
 	font-size: 12px;
 	line-height: 15px;
 	padding: 10px;
+}
+
+.remove-from-watchlist-button {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 10px 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #e11d48;
+  color: white;
+  margin-left: 30px;
+}
+
+.remove-from-watchlist-button:hover{
+  background-color: #f43f5e;
+  color: white;
 }

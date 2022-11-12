@@ -3,6 +3,7 @@ import facade from "../../facades/apiFacade";
 import Unauthorized from "../Unauthorized";
 import MovieInWatchlist from "./MovieInWatchlist";
 
+
 const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieToWatchlist, dataFromServer, setDataFromServer}) => {
   const [removedMovie, setRemovedMovie] = useState(false)
 
@@ -17,6 +18,9 @@ const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieT
       .then((data) => {
           setDataFromServer(data)
           console.log(data)
+      })
+      .catch(err => {
+        
       });
     }
   }, [removedMovie]);
@@ -28,7 +32,7 @@ const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieT
           <Unauthorized />
         ) : (
           <>
-            <h1>Your Watchlist</h1>
+            <h1 style={{textAlign:"center"}}>Your Watchlist</h1>
             {dataFromServer?.length === 0 && <p>Your watchlist is empty</p>}
             <div id="container-movies">
             {/*map across all movies*/}
