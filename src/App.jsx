@@ -7,6 +7,7 @@ import Error from './components/Error'
 import Profile from './components/Profile'
 import Login from './components/Login'
 import Watchlist from './components/moviesComponents/Watchlist'
+import ProtectedRoutes from './ProtectedRoutes'
 
 const App = () => {
 
@@ -26,8 +27,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />}/> 
         <Route path="search" element={<Search movieData={movieData} setMovieData={setMovieData} />} />
-        <Route path="profile" element={<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-        <Route path='watchlist' element={<Watchlist loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
+        <Route element={<ProtectedRoutes/>}>
+          <Route path="profile" element={<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+          <Route path='watchlist' element={<Watchlist loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
+        </Route>
         <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked}/>} />
         <Route path='error' element={<Error errorMsg={errorMsg}/>}/>
         <Route path='*' element={<Error/>}/>
