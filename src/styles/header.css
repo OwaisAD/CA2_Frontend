@@ -368,6 +368,39 @@ form.search-field-form button:hover {
   background-color: rgba(0, 0, 0, 0.186);
 }
 
+.movie-tags2 {
+	position: relative;
+	margin: 5px;
+	padding: 0;
+}
+.movie-tags2 li{
+	position: relative;
+	list-style: none;
+	display: inline-block;
+	background-color: transparent;
+	margin: 0 5px;
+	padding: 3px 7px;
+	border-radius: 30px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  background-color: rgba(0, 0, 0, 0.064);
+}
+.movie-tags2 li a{
+	position: relative;
+	text-decoration: none;
+	font-size: 10px;
+	line-height: 30px;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.755);
+}
+.movie-tags2 li:hover{
+  background-color: rgba(0, 0, 0, 0.186);
+}
+
 .movie-plot-container {
   border-left: 2px solid rgba(191, 255, 0, 0.506);
   border-style: none none none double;
@@ -501,8 +534,8 @@ form.search-field-form button:hover {
 	-webkit-transition: all 0.5s ease-in-out;
 	backface-visibility: hidden;
 	box-shadow: 0 5px 7px rgba(0,0,0,.15);
-
 }
+
 .container-movie .movie .front{
 	transform-origin: 0%;
 	-webkit-transform-origin: 0%;
@@ -560,36 +593,8 @@ form.search-field-form button:hover {
 	color: #aaa;
 	text-transform: lowercase;
 }
-.movie-tags{
-	position: relative;
-	margin: 0 10px;
-	padding: 0;
-}
-.movie-tags li{
-	position: relative;
-	list-style: none;
-	display: inline-block;
-	background-color: #ccc;
-	margin: 0;
-	padding: 3px 7px;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out;
-}
-.movie-tags li a{
-	position: relative;
-	text-decoration: none;
-	font-size: 10px;
-	line-height: 30px;
-	text-transform: uppercase;
-	color: #fff;
-}
-.movie-tags li:hover{
-	background-color: #aaa;
-}
+
+
 .movie-synopsis{
 	width: 90%;
 	font-size: 12px;

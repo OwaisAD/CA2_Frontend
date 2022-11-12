@@ -27,7 +27,7 @@ const MovieInWatchlist = ({ movieData }) => {
                   {movieData.movie.year} - {movieData.movie.runtime}
                 </span>
               </h1>
-              <ul className="movie-tags">
+              <ul className="movie-tags2">
                 {categoriesList.map((category, idx) => {
                   return (
                     <li key={idx}>
