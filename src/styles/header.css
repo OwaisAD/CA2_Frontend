@@ -632,3 +632,59 @@ form.search-field-form button:hover {
 .title p {
 font-size: 16px;
 }
+
+/*STYLING HOME PAGE*/
+.home-header {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  background-color: #21f33369;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.content {
+  background-color:rgba(255, 255, 255, 0.134);
+  border-radius:2em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  padding: 0px 40px; 
+  position:fixed;
+  text-align:center;
+}
+.home-header h1 {
+  color: rgb(0, 0, 0);
+  font-family:monospace;
+  font-size: 45px;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
