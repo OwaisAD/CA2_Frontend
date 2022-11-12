@@ -4,7 +4,7 @@ import Unauthorized from "../Unauthorized";
 import MovieInWatchlist from "./MovieInWatchlist";
 
 const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieToWatchlist, dataFromServer, setDataFromServer}) => {
-
+  const [removedMovie, setRemovedMovie] = useState(false)
 
   // NEED TO HAVE A STATE THAT CHECKS WETHER A USER ADDED A MOVIE TO WATCHLIST, IF YES, THEN USEEFFECT SHOULD RELY ON THAT VARIABLE
 
@@ -19,7 +19,7 @@ const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieT
           console.log(data)
       });
     }
-  }, []);
+  }, [removedMovie]);
 
   return (
     <div>
@@ -29,11 +29,11 @@ const Watchlist = ({loggedIn, setLoggedIn, addedMovieToWatchlist, setAddedMovieT
         ) : (
           <>
             <h1>Your Watchlist</h1>
-
+            {dataFromServer?.length === 0 && <p>Your watchlist is empty</p>}
             <div id="container-movies">
             {/*map across all movies*/}
-            {dataFromServer?.map(data => {
-              return <MovieInWatchlist movieData={data}/>
+            {dataFromServer?.map((data,idx) => {
+              return <MovieInWatchlist key={idx} movieData={data} removedMovie={removedMovie} setRemovedMovie={setRemovedMovie}/>
             })}
             </div>
 

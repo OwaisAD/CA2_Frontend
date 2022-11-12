@@ -107,6 +107,12 @@ function apiFacade() {
       .then(handleHttpErrors)
   }
 
+  const removeMovieFromUser = async (movieId) => {
+    const options = makeOptions("DELETE", true)
+    return await fetch(`${URL}/users/me/movies/${movieId}`, options)
+      .then(handleHttpErrors)
+  }
+
   const getUserMovies = async () => {
       const options = makeOptions("GET", true)
 
@@ -145,6 +151,7 @@ function apiFacade() {
     getUsername,
     createUser,
     addMovieToUser,
+    removeMovieFromUser,
     getUserMovies,
   };
 }

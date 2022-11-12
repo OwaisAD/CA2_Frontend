@@ -1,14 +1,21 @@
 import React from "react";
+import facade from "../../facades/apiFacade";
 
-const MovieInWatchlist = ({ movieData }) => {
+const MovieInWatchlist = ({ movieData, removedMovie, setRemovedMovie }) => {
   const categories = movieData.movie.genre;
   let categoriesList = categories.split(",");
   categoriesList = categoriesList.map(function (item) {
     return item.trim();
   });
 
-  return (
+  const handleMovieRemoval = (movieId) => {
+    facade.removeMovieFromUser(movieId)
+      .then(res => {
+        setRemovedMovie(!removedMovie)
+      })
+  }
 
+  return (
       <div className="container-movie">
         <div className="movie">
           <div className="movie-inside front">
@@ -39,7 +46,7 @@ const MovieInWatchlist = ({ movieData }) => {
               <p className="movie-synopsis">
                {movieData.movie.plot}
               </p>
-              <button>Remove from watchlist</button>
+              <button onClick={() => handleMovieRemoval(movieData.movie.id)}>Remove from watchlist</button>
             </div>
         </div>
       </div>
