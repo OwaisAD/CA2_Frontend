@@ -69,7 +69,7 @@ function apiFacade() {
   };
 
   const createUser = async (username, password, age) => {
-    const options = makeOptions("POST", {
+    const options = makeOptions("POST", false, {
       username: username,
       password: password,
       age: age,

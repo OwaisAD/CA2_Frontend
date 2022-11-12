@@ -6,35 +6,36 @@ const CreateAccountComponent = ({
   createAccountClicked,
   setCreateAccountClicked,
   setErrorMsg,
+  errorMsg,
 }) => {
   const navigate = useNavigate();
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   const [loginCredentials, setLoginCredentials] = useState({ username: "", password: "", passwordRepeated: "", age: "" });
   //const [error, setError] = useState({ username: "", password: "", passwordRepeated: "", age: "" }) //should be used to handling the form errors....
-  const date = new Date()
-  const minimumDate = `${date.getFullYear()-120}-01-01` // set because maximum age is 120
-  const maximumDate = `${date.getFullYear()-13}-01-01` // set because minimum age is 13
+  var today = new Date();
+  var dd = String(today.getDate())
+  var mm = String(today.getMonth() + 1) //January is 0!
+  var minimum_yyyy = today.getFullYear()-120;
+  var maximum_yyyy = today.getFullYear()-13;
+    
+  const minimumDate = minimum_yyyy+"-"+mm+"-"+dd; // set because maximum age is 120
+  const maximumDate = maximum_yyyy+"-"+mm+"-"+dd // set because minimum age is 13
 
   const performCreateUser = (evt) => {
     evt.preventDefault();
-    createUser(
-      loginCredentials.username,
-      loginCredentials.password,
-      loginCredentials.age
-    );
+    createUser(loginCredentials.username, loginCredentials.password, loginCredentials.age)
   };
 
   const createUser = async (user, pass, age) => {
     await facade
       .createUser(user, pass, age)
-      .then((res) => {
+      .then(res => {
         // SET SOME KIND OF SUCCESS MESSAGE
         navigate("/login");
       })
       .catch((err) => {
         err.fullError.then((e) => setErrorMsg(e.message));
-        navigate("/error");
       });
   };
 
@@ -50,7 +51,7 @@ const CreateAccountComponent = ({
   };
 
   const onChange = (evt) => {
-    if (evt.target.id === "date-born") {
+    if (evt.target.id === "age") {
       let age = getAge(evt.target.value);
       console.log(age);
       setLoginCredentials({
@@ -92,8 +93,8 @@ const CreateAccountComponent = ({
             id="passwordRepeated"
             required
           />
-          <label htmlFor="date-born">Please enter birthdate </label>
-          <input type="date" id="date-born" min={minimumDate} max={maximumDate} required/>
+          <label htmlFor="age">Please enter birthdate </label>
+          <input type="date" id="age" min={minimumDate} max={maximumDate} required/> <br />
           <button className="glow-on-hover" onClick={performCreateUser}>
             Create
           </button>
@@ -109,6 +110,8 @@ const CreateAccountComponent = ({
         >
           Already have an account?
         </button>
+        <p>{JSON.stringify(loginCredentials)}</p>
+        <p>error: {errorMsg}</p>
       </div>
     </div>
   );

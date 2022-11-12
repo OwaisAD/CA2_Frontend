@@ -33,7 +33,7 @@ const App = () => {
           <Route path="profile" element={<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} setAddedMovieToWatchlist={setAddedMovieToWatchlist}/>} />
           <Route path='watchlist' element={<Watchlist loggedIn={loggedIn} setLoggedIn={setLoggedIn} addedMovieToWatchlist={addedMovieToWatchlist} setAddedMovieToWatchlist={setAddedMovieToWatchlist} dataFromServer={dataFromServer} setDataFromServer={setDataFromServer}/>}/>
         </Route>
-        <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked}/>} />
+        <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} errorMsg={errorMsg} createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked}/>} />
         <Route path='error' element={<Error errorMsg={errorMsg}/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
