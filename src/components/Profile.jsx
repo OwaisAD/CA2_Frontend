@@ -19,22 +19,20 @@ const Profile = ({loggedIn, setLoggedIn, addedMovieToWatchlist}) => {
   }, [addedMovieToWatchlist]);
 
   return (
-    <div>
         <>
         {!loggedIn ? <Unauthorized/> : 
         <><h1>Profile</h1>
           <h3>Data Received from server:</h3>
-          <h3>Welcome {dataFromServer.username} (id: {dataFromServer.id}) / age: {dataFromServer.age}, with role(s): {dataFromServer.roles}</h3>
+          <h3>Welcome {dataFromServer?.username} (id: {dataFromServer?.id}) / age: {dataFromServer?.age}, with role(s): {dataFromServer?.roles}</h3>
           <br />
           <p>Your movie list</p>
-          {dataFromServer.movies?.map(movie => {
+          {dataFromServer?.movies?.map(movie => {
             return <li key={movie.id}>{movie.title} from {movie.year}</li>
           })}
           {console.log(dataFromServer)}
           </>
         }
         </>
-    </div>
   );
 };
 

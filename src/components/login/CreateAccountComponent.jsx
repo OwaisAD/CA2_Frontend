@@ -55,9 +55,7 @@ const CreateAccountComponent = ({
       .createUser(user, pass, age)
       .then((res) => {
         // SET SOME KIND OF SUCCESS MESSAGE
-        setCreateAccountClicked(
-          (createAccountClicked) => !createAccountClicked
-        );
+        navigate("/login")
       })
       .catch((err) => {
         err.fullError.then((e) => setErrorMsg(e.message));
