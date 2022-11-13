@@ -32,7 +32,9 @@ function Search({movieData, setMovieData}) {
   return (
     <>
       <div>
-        <h1 style={{textAlign: "center", color:"white", marginTop:"40px"}}>Search for a movie</h1>
+      <div class="nine">
+            <h1>Search <span style={{color:"white"}}>Look up a movie by its title</span> </h1>
+          </div>
         <div className="search-bar">
           <form className="search-field-form">
             <div className="search-field">
