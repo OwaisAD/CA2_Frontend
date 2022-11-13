@@ -50,7 +50,7 @@ const LoginComponent = ({setLoggedIn, setErrorMsg, createAccountClicked, setCrea
 
       
       <p style={{padding:"5px 0px"}}>Don't have an account?</p>
-      <a href="#" onClick={() => navigate("/register")}>Sign up here</a>
+      <a href="javascript:void(0);" onClick={() => navigate("/register")}>Sign up here</a>
         
       <h3 style={{color:"red"}}>{errorMsgLogin}</h3>
     </div>

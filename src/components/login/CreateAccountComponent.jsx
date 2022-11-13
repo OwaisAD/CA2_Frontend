@@ -172,7 +172,7 @@ const CreateAccountComponent = ({
         </form>
 
         <p>Already have an account?</p>
-        <a href="#" onClick={() => navigate("/login")}>
+        <a href="javascript:void(0);" onClick={() => navigate("/login")}>
           Log in here
         </a>
 

@@ -8,7 +8,7 @@ import Profile from './components/Profile'
 import Login from './components/Login'
 import Watchlist from './components/moviesComponents/Watchlist'
 import ProtectedRoutes from './ProtectedRoutes'
-import Register from './components/Register'
+import Register from './components/Registration'
 
 const App = () => {
 
