@@ -46,14 +46,14 @@ const CreateAccountComponent = ({
     createUser(
       loginCredentials.username,
       loginCredentials.password,
-      loginCredentials.age
+      loginCredentials.age,
     );
   };
 
   const createUser = (user, pass, age) => {
     facade
       .createUser(user, pass, age)
-      .then((res) => {
+      .then(data => {
         // SET SOME KIND OF SUCCESS MESSAGE
         navigate("/login")
       })
@@ -170,7 +170,7 @@ const CreateAccountComponent = ({
         </form>
 
         <p>Already have an account?</p>
-        <a href="javascript:void(0);" onClick={() => navigate("/login")}>
+        <a style={{color:"#0000EE", cursor:"pointer"}} onClick={() => navigate("/login")}>
           Log in here
         </a>
 

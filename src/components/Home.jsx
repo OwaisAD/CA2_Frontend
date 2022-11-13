@@ -6,10 +6,10 @@ function Home() {
   return (
     <div>
       <div className="home-header">
-        <div class="bg"></div>
-        <div class="bg bg2"></div>
-        <div class="bg bg3"></div>
-        <div class="content">
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <div className="content">
         <img src={Image} alt="cinewatch logo" style={{maxWidth: "140px", margin:"30px auto 20px", display:"block"}} className="logo"/>
           <h1>Welcome to CineWatch</h1>
           <div className="homepage-links">

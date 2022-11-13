@@ -72,9 +72,9 @@ function apiFacade() {
     const options = makeOptions("POST", false, {
       username: username,
       password: password,
-      age: age,
+      age: age
     });
-
+    
     return await fetch(URL + "/users", options)
       .then(handleHttpErrors)
 
@@ -134,6 +134,7 @@ function apiFacade() {
     }
     if (body) {
       opts.body = JSON.stringify(body);
+      console.log(opts.body);
     }
     return opts;
   };

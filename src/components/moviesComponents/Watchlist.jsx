@@ -49,7 +49,7 @@ const Watchlist = ({
               </h1>
             </div>
 
-            {dataFromServer?.length === 0 && <p>Your watchlist is empty</p>}
+            {dataFromServer?.length === 0 && <p style={{fontSize:"18px", textAlign:"center"}}>Your watchlist is empty</p>}
             <div id="container-movies">
               {dataFromServer?.map((data, idx) => {
                 return (
