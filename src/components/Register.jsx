@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import LoginComponent from "./login/LoginComponent";
+import CreateAccountComponent from "./login/CreateAccountComponent";
 import Image from "../images/cinewatch2.png";
 
-const Login = ({ setLoggedIn, setErrorMsg, errorMsg }) => {
+const Register = ({ setLoggedIn, setErrorMsg, errorMsg }) => {
   return (
     <>
       <img
@@ -15,11 +15,13 @@ const Login = ({ setLoggedIn, setErrorMsg, errorMsg }) => {
         }}
         className="logo"
       />
-      <>
-        <LoginComponent setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} />
-      </>
+      <CreateAccountComponent
+        setLoggedIn={setLoggedIn}
+        setErrorMsg={setErrorMsg}
+        errorMsg={errorMsg}
+      />
     </>
   );
 };
 
-export default Login;
+export default Register;

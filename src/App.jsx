@@ -8,6 +8,7 @@ import Profile from './components/Profile'
 import Login from './components/Login'
 import Watchlist from './components/moviesComponents/Watchlist'
 import ProtectedRoutes from './ProtectedRoutes'
+import Register from './components/Register'
 
 const App = () => {
 
@@ -30,10 +31,13 @@ const App = () => {
         <Route path="/" element={<Home />}/> 
         <Route path="search" element={<Search movieData={movieData} setMovieData={setMovieData} />} />
         <Route element={<ProtectedRoutes/>}>
-          <Route path="profile" element={<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} setAddedMovieToWatchlist={setAddedMovieToWatchlist}/>} />
-          <Route path='watchlist' element={<Watchlist loggedIn={loggedIn} setLoggedIn={setLoggedIn} addedMovieToWatchlist={addedMovieToWatchlist} setAddedMovieToWatchlist={setAddedMovieToWatchlist} dataFromServer={dataFromServer} setDataFromServer={setDataFromServer}/>}/>
+          <Route path="/profile" element={<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} setAddedMovieToWatchlist={setAddedMovieToWatchlist}/>} />
+          <Route path='/watchlist' element={<Watchlist loggedIn={loggedIn} setLoggedIn={setLoggedIn} addedMovieToWatchlist={addedMovieToWatchlist} setAddedMovieToWatchlist={setAddedMovieToWatchlist} dataFromServer={dataFromServer} setDataFromServer={setDataFromServer}/>}/>
         </Route>
-        <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} errorMsg={errorMsg} createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked}/>} />
+        
+        <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} errorMsg={errorMsg} createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked}/>} />
+        <Route path='/register' element={<Register setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg} errorMsg={errorMsg}/>}/>
+
         <Route path='error' element={<Error errorMsg={errorMsg}/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
