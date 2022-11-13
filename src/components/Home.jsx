@@ -14,8 +14,18 @@ function Home() {
           <h1>Welcome to CineWatch</h1>
         </div>
       </div>
-      <section>
-        <h3>Get started</h3>
+      <div className="homepage-links">
+        <p>
+          <Link to="/search">Start searching here!</Link>
+        </p>
+        <p>
+          <Link to="/login">Already have a user?</Link>
+        </p>
+      </div>
+
+    <div style={{columns:"2", maxWidth:"900px", margin:"auto"}}>
+      <section className="homepage-section">
+        <h2>Get started</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
           iste dolor suscipit unde eligendi, similique ab enim. Ex velit vero
@@ -24,12 +34,9 @@ function Home() {
           accusantium corporis, beatae fugit soluta. Nisi, veniam fugit beatae
           dolor eaque perferendis accusantium?
         </p>
-        <p>
-        <Link to="/search">Start searching here!</Link>
-      </p>
       </section>
-      <section>
-        <h3>Services</h3>
+      <section className="homepage-section">
+        <h2>Services</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
           iste dolor suscipit unde eligendi, similique ab enim. Ex velit vero
@@ -38,10 +45,8 @@ function Home() {
           accusantium corporis, beatae fugit soluta. Nisi, veniam fugit beatae
           dolor eaque perferendis accusantium?
         </p>
-        <p>
-        <Link to="/login">Already have a user?</Link>
-      </p>
       </section>
+      </div>
       <Outlet />
     </div>
   );

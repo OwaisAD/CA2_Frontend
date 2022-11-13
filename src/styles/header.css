@@ -665,12 +665,11 @@ font-size: 16px;
 }
 
 .content {
-  background-color:rgba(255, 255, 255, 0.134);
-  border-radius:2em;
+  background-color:rgba(255, 255, 255, 0.126);
+  border-radius:3em;
   box-shadow:0 0 .25em rgba(0,0,0,.25);
   box-sizing:border-box;
   padding: 0px 40px; 
-  position:fixed;
   text-align:center;
 }
 .home-header h1 {
@@ -694,4 +693,28 @@ font-size: 16px;
 
 .logo:hover {
   transform: rotate(360deg);
+}
+
+.homepage-links {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+
+.homepage-links p:nth-child(1) {
+  margin-right: 20px;
+}
+
+.homepage-section {
+  max-width: 900px;
+  padding: 10px 25px;
+  margin: auto;
+  background-color: #00ffd55e;
+  color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.164) 0px 4px 12px;
+}
+
+.homepage-section p {
+  text-align: justify;
 }
