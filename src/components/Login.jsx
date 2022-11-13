@@ -7,7 +7,7 @@ const Login = ({ setLoggedIn, setErrorMsg, createAccountClicked, setCreateAccoun
 
   return (
     <>
-    <img src={Image} alt="cinewatch logo" style={{maxWidth: "120px", margin:"30px auto 20px", display:"block"}}/>
+    <img src={Image} alt="cinewatch logo" style={{maxWidth: "120px", margin:"30px auto 20px", display:"block"}} className="logo"/>
     {!createAccountClicked ? 
         (<><LoginComponent createAccountClicked={createAccountClicked} setCreateAccountClicked={setCreateAccountClicked} setLoggedIn={setLoggedIn} setErrorMsg={setErrorMsg}/></>) 
         : 
