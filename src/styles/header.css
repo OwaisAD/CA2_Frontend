@@ -635,7 +635,7 @@ font-size: 16px;
 
 /*STYLING HOME PAGE*/
 .home-header {
-  height: 40vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -697,14 +697,16 @@ font-size: 16px;
 
 .homepage-links {
   display: flex;
+  margin: auto;
+  align-items: center;
   justify-content: center;
-  margin: 30px;
+}
+
+.homepage-links .tag {
+  margin: 0px 50px 40px 50px;
 }
 
 
-.homepage-links p:nth-child(1) {
-  margin-right: 20px;
-}
 
 .homepage-section {
   max-width: 900px;

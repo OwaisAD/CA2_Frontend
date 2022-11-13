@@ -12,17 +12,17 @@ function Home() {
         <div class="content">
         <img src={Image} alt="cinewatch logo" style={{maxWidth: "140px", margin:"30px auto 20px", display:"block"}} className="logo"/>
           <h1>Welcome to CineWatch</h1>
+          <div className="homepage-links">
+        <div className="tag">
+            <Link to="/search">Start searching here!</Link>
+          </div>
+          <div className="tag">
+          <Link to="/login">Already have a user?</Link>
+          </div>
+      </div>
         </div>
       </div>
-      <div className="homepage-links">
-        <p>
-          <Link to="/search">Start searching here!</Link>
-        </p>
-        <p>
-          <Link to="/login">Already have a user?</Link>
-        </p>
-      </div>
-
+     
     <div style={{columns:"2", maxWidth:"900px", margin:"auto"}}>
       <section className="homepage-section">
         <h2>Get started</h2>
