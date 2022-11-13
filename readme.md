@@ -1,4 +1,4 @@
-# Course Assignment 2, 3rd semester
+# Course Assignment 2, 3rd semester, frontend
 This project is meant to build a project template. It is made with React and built with Vite. Implements react-routing with protected routes.
 
 # Setup project instructions
