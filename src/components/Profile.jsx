@@ -25,7 +25,9 @@ const Profile = ({ loggedIn, setLoggedIn, addedMovieToWatchlist }) => {
       ) : (
         <>
           <div class="nine">
-            <h1>Profile <span style={{color:"white"}}>Change your personal information</span> </h1>
+            <h1>
+              Profile <span style={{ color: "white" }}>Change your personal information</span>{" "}
+            </h1>
           </div>
           <div className="profile-container">
             <div className="profile-inner-container">
@@ -37,19 +39,13 @@ const Profile = ({ loggedIn, setLoggedIn, addedMovieToWatchlist }) => {
                 }}
               >
                 <p>
-                  Username:{" "}
-                  <span style={{ fontWeight: "bold" }}>
-                    {dataFromServer?.username}
-                  </span>
+                  Username: <span style={{ fontWeight: "bold" }}>{dataFromServer?.username}</span>
                 </p>
                 <button>Edit</button>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <p>
-                  Age:{" "}
-                  <span style={{ fontWeight: "bold" }}>
-                    {dataFromServer?.age}
-                  </span>
+                  Age: <span style={{ fontWeight: "bold" }}>{dataFromServer?.age}</span>
                 </p>
                 <button>Edit</button>
               </div>

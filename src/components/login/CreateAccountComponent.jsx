@@ -43,19 +43,15 @@ const CreateAccountComponent = ({
       setErrorMsg("Passwords don't match");
       return;
     }
-    createUser(
-      loginCredentials.username,
-      loginCredentials.password,
-      loginCredentials.age,
-    );
+    createUser(loginCredentials.username, loginCredentials.password, loginCredentials.age);
   };
 
   const createUser = (user, pass, age) => {
     facade
       .createUser(user, pass, age)
-      .then(data => {
+      .then((data) => {
         // SET SOME KIND OF SUCCESS MESSAGE
-        navigate("/login")
+        navigate("/login");
       })
       .catch((err) => {
         err.fullError.then((e) => setErrorMsg(e.message));
@@ -108,12 +104,7 @@ const CreateAccountComponent = ({
           >
             Username
           </label>
-          <input
-            type="text"
-            placeholder="Enter username"
-            id="username"
-            required
-          />{" "}
+          <input type="text" placeholder="Enter username" id="username" required />{" "}
           <label
             htmlFor="password"
             style={{
@@ -125,12 +116,7 @@ const CreateAccountComponent = ({
           >
             Password
           </label>
-          <input
-            type="password"
-            placeholder="Enter password"
-            id="password"
-            required
-          />
+          <input type="password" placeholder="Enter password" id="password" required />
           <label
             htmlFor="password"
             style={{
@@ -161,16 +147,13 @@ const CreateAccountComponent = ({
               style={{ float: "righ" }}
             />
           </div>
-          <button
-            className="glow-on-hover create-button"
-            onClick={performCreateUser}
-          >
+          <button className="glow-on-hover create-button" onClick={performCreateUser}>
             Create your CineWatch account
           </button>
         </form>
 
         <p>Already have an account?</p>
-        <a style={{color:"#0000EE", cursor:"pointer"}} onClick={() => navigate("/login")}>
+        <a style={{ color: "#0000EE", cursor: "pointer" }} onClick={() => navigate("/login")}>
           Log in here
         </a>
 

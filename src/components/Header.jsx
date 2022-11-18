@@ -4,12 +4,7 @@ import "../styles/header.css";
 import LoggedInNavBar from "./LoggedInNavBar";
 import LoginButton from "./LoginButton";
 
-function Header({
-  loggedIn,
-  setErrorMsg,
-  setLoggedIn,
-  setCreateAccountClicked,
-}) {
+function Header({ loggedIn, setErrorMsg, setLoggedIn, setCreateAccountClicked }) {
   return (
     <nav className="topnav">
       <NavLink to="/" end>

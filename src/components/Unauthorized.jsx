@@ -1,8 +1,8 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Unauthorized = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -10,7 +10,7 @@ const Unauthorized = () => {
       <p>You are not authorized.</p>
       <button onClick={() => navigate("/")}>Go back to home {">"}</button>
     </div>
-  )
-}
+  );
+};
 
-export default Unauthorized
+export default Unauthorized;

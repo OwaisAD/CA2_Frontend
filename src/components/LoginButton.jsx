@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Login = ({setCreateAccountClicked}) => {
+const Login = ({ setCreateAccountClicked }) => {
   const navigate = useNavigate();
 
   return (
@@ -8,7 +8,7 @@ const Login = ({setCreateAccountClicked}) => {
       <button
         className="glow-on-hover"
         onClick={() => {
-          setCreateAccountClicked(false)
+          setCreateAccountClicked(false);
           navigate("login");
         }}
       >

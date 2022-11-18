@@ -20,7 +20,7 @@ function App() {
         if (err.status) {
           err.fullError.then((e) => setErrorMessage(e.message));
         } else {
-          setErrorMessage("Network error")
+          setErrorMessage("Network error");
         }
       });
   };
